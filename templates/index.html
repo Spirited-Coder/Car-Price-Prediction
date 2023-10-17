@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="static/style.css">
+  
+</head>
+
+<body>
+ <div class="container" style="background-image: url('images/background.jpg');">
+	<h1>Car Price Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <div class="form-group">
+          <label for="Mileage">Mileage:</label>
+          <input type="text" id="Mileage" name="Mileage" placeholder="Enter Mileage">
+      </div>
+      <div class="form-group">
+          <label for="Age(yrs)">Age(yrs):</label>
+          <input type="text" id="Age(yrs)" name="Age(yrs)" placeholder="Enter Age(yrs)">
+      </div>
+      <div class="form-group">
+          <label for="Model_BMW">Model_BMW:</label>
+          <input type="text" id="Model_BMW" name="Model_BMW" placeholder="Enter Model_BMW">
+      </div>
+      <div class="form-group">
+          <label for="Model_Mercedez">Model_Mercedez:</label>
+          <input type="text" id="Model_Mercedez" name="Model_Mercedez" placeholder="Enter Model_Mercedez">
+      </div>
+    	<!-- <input type="text" name="Mileage" placeholder="Mileage" required="required" /> -->
+        <!-- <input type="text" name="Age(yrs)" placeholder="Age(yrs)" required="required" />
+		<input type="text" name="Model_BMW" placeholder="Model_BMW" required="required" />
+		<input type="text" name="Model_Mercedez" placeholder="Model_Mercedez" required="required" /> -->
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
